@@ -22,10 +22,24 @@ $chatbot_config = [
         'contact' => 'https://www.sportsdpsp.lk/contact',
     ],
 
-    // Add the exact official URLs here when you provide the other ministries/departments.
-    // Example:
-    // ['name' => 'Ministry of Education', 'url' => 'https://example.gov.lk/'],
-    'other_sites' => [],
+    'other_sites' => [
+        [
+            'name' => 'Ministry of Sports - Southern Province',
+            'url' => 'https://sportsmin.sp.gov.lk'
+        ],
+        [
+            'name' => 'Chief Ministry - Southern Province',
+            'url' => 'https://www.cm.sp.gov.lk/index.php'
+        ],
+        [
+            'name' => 'Chief Secretariat - Southern Province',
+            'url' => 'https://www.cs.sp.gov.lk'
+        ],
+        [
+            'name' => 'Public Service Commission - Southern Province',
+            'url' => 'https://psc.sp.gov.lk'
+        ]
+    ],
 
     'contact' => [
         'address' => '3rd Floor, "Dakshinapaya", Ministry Complex, Labuduwa, Galle',
@@ -36,11 +50,17 @@ $chatbot_config = [
         'fax' => '091 22236272',
         'email' => 'minisportssouthern@gmail.com',
     ],
+	'office' => [
+    'name' => 'Department of Sports - Southern Province',
+    'address' => '3rd Floor, "Dakshinapaya", Ministry Complex, Labuduwa, Galle',
+    'maps_search' => 'https://www.google.com/maps/search/?api=1&query=Department+of+Sports+Southern+Province+Labuduwa+Galle',
+    'directions' => 'https://www.google.com/maps/dir/?api=1&destination=Department+of+Sports+Southern+Province+Labuduwa+Galle',
+    ],
 
     'assets' => [
         'logo' => '/chatbot/assets/department-logo.png',
         'flag' => '/chatbot/assets/southern-flag.jpg',
-        'amal' => '/chatbot/assets/amal.svg',
+        'amal' => '/chatbot/assets/amal.jpg',
     ],
 ];
 ?>
