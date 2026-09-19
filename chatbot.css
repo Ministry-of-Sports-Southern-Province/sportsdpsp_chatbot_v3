@@ -90,11 +90,9 @@
 }
 
 .header-amal {
-    width: 42px;
-    height: 42px;
-    background: #fff7e7;
-    border-radius: 50%;
-    padding: 1px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover
 }
 
 .header-copy { min-width: 0; flex: 1; }
@@ -265,4 +263,322 @@
     .chatbot-buttons { grid-template-columns: 1fr; }
     .chatbot-brand-strip { min-height: 64px; }
     .chatbot-logo { max-height: 55px; }
+}
+/* =========================================================
+   OFFICE LOCATION CARD
+   ========================================================= */
+
+.office-card {
+    width: 100%;
+    box-sizing: border-box;
+    background: #fffaf0;
+    border: 1px solid rgba(128, 0, 32, 0.18);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 14px;
+}
+
+.office-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: linear-gradient(
+        135deg,
+        #800020 0%,
+        #6b001b 100%
+    );
+    color: #ffffff;
+}
+
+.office-card-mascot {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #d4af37;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.office-card-mascot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.office-card-heading {
+    min-width: 0;
+}
+
+.office-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+.office-card-subtitle {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.office-card-body {
+    padding: 16px;
+}
+
+.office-card-name {
+    font-weight: 700;
+    color: #800020;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.office-card-address {
+    color: #4b3a2f;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.office-card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 0 16px 16px;
+}
+
+.office-card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    box-sizing: border-box;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.office-card-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+.office-card-button.maps {
+    background: #800020;
+    color: #ffffff;
+}
+
+.office-card-button.directions {
+    background: #d4af37;
+    color: #3d2c00;
+}
+
+@media (max-width: 480px) {
+
+    .office-card-title {
+        font-size: 16px;
+    }
+
+    .office-card-address {
+        font-size: 13px;
+    }
+
+    .office-card-button {
+        font-size: 13px;
+    }
+}
+/* =========================================================
+   AMAL - PULSE RINGS + FRIENDLY BOUNCE
+   ========================================================= */
+
+.chatbot-launcher {
+    position: relative;
+    animation: amalBounce 3.6s ease-in-out infinite;
+}
+
+.chatbot-launcher::before,
+.chatbot-launcher::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid rgba(212, 175, 55, 0.7);
+    animation: amalPulseRing 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.chatbot-launcher::after {
+    animation-delay: 1.1s;
+}
+
+@keyframes amalPulseRing {
+    0%   { transform: scale(1);   opacity: 0.85; }
+    100% { transform: scale(1.65); opacity: 0; }
+}
+
+@keyframes amalBounce {
+    0%, 78%, 100% { transform: translateY(0); }
+    84%  { transform: translateY(-7px); }
+    89%  { transform: translateY(0); }
+    92%  { transform: translateY(-3px); }
+    95%  { transform: translateY(0); }
+}
+
+/* Stop completely when chatbot is open */
+.sportsdpsp-chatbot:has(.chatbot-panel.is-open) .chatbot-launcher {
+    animation: none;
+}
+.sportsdpsp-chatbot:has(.chatbot-panel.is-open) .chatbot-launcher::before,
+.sportsdpsp-chatbot:has(.chatbot-panel.is-open) .chatbot-launcher::after {
+    animation: none;
+    opacity: 0;
+}
+/* =========================================================
+   AMAL DOCUMENT SYSTEM
+   ========================================================= */
+
+.chatbot-document-search {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 10px 0 14px;
+}
+
+.chatbot-document-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(128, 0, 32, 0.22);
+    border-radius: 11px;
+    padding: 11px 13px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+}
+
+.chatbot-document-search-input:focus {
+    border-color: #800020;
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.08);
+}
+
+.chatbot-document-search-button {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 14px;
+    background: #800020;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.chatbot-document-loading {
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+.chatbot-document-results-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: #800020;
+    padding: 8px 2px;
+    margin-top: 5px;
+}
+
+.chatbot-document-card {
+    background: #fffaf0;
+    border: 1px solid rgba(128, 0, 32, 0.16);
+    border-radius: 14px;
+    padding: 12px;
+    margin: 9px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-document-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.chatbot-document-icon {
+    width: 39px;
+    min-width: 39px;
+    height: 39px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(128, 0, 32, 0.08);
+    font-size: 20px;
+}
+
+.chatbot-document-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.chatbot-document-title {
+    font-size: 13px;
+    line-height: 1.45;
+    font-weight: 700;
+    color: #3d3131;
+    word-break: break-word;
+}
+
+.chatbot-document-meta {
+    margin-top: 4px;
+    font-size: 11px;
+    color: #777;
+}
+
+.chatbot-document-actions {
+    display: flex;
+    gap: 7px;
+    margin-top: 11px;
+}
+
+.chatbot-document-btn {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 9px;
+    padding: 9px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+.chatbot-document-btn.preview {
+    color: #800020;
+    background: rgba(128, 0, 32, 0.09);
+}
+
+.chatbot-document-btn.download {
+    color: #fff;
+    background: #800020;
+}
+
+.chatbot-document-btn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+
+    .chatbot-document-title {
+        font-size: 12.5px;
+    }
+
+    .chatbot-document-actions {
+        flex-direction: column;
+    }
 }
